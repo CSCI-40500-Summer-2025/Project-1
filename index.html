@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RSVP Maker Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>RSVP to Our Event</h1>
+
+  <form id="rsvpForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="guests">Number of Guests:</label>
+    <input type="number" id="guests" min="0" required>
+
+    <button type="submit">Submit RSVP</button>
+  </form>
+
+  <h2>Current RSVPs (Mock Data)</h2>
+  <ul id="rsvpList">
+    <li>Alice - 2 guests</li>
+    <li>Bob - 1 guest</li>
+    <li>Charlie - 3 guests</li>
+  </ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
