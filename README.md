@@ -22,3 +22,18 @@ This is a basic prototype for an RSVP Maker app. It shows how a user might RSVP 
 ## Notes
 - This is a **proof-of-concept**, meaning it does not save data or connect to a backend yet.
 - Alerts are used in place of full functionality.
+
+## Prototype Extension – v0.2
+
+This version extends the RSVP Maker prototype to include:
+
+- RSVP form submissions that display live on the page.
+- RSVP entries are saved to LocalStorage and persist across refreshes.
+- Export to CSV feature (for organizers).
+- Improved styling for mobile friendliness.
+
+To use:
+1. Open `index.html` in your browser.
+2. Submit an RSVP — it will appear in the list.
+3. Click “Export Guest List” to download RSVPs as a CSV.
+
