@@ -37,3 +37,63 @@ To use:
 2. Submit an RSVP — it will appear in the list.
 3. Click “Export Guest List” to download RSVPs as a CSV.
 
+
+
+## Product Architecture (for RSVP Maker)
+
+🔷 Important Qualities (based on Figure 4.4 & Table 4.4)
+We prioritized the following non-functional qualities:
+-Usability – The system must be intuitive and fast for guests to RSVP, especially on mobile.
+-Maintainability – Components are loosely coupled (e.g., form, display logic, storage) to simplify future updates.
+-Availability – The system is designed to remain usable even without internet, via localStorage (offline mode).
+-Security – Minimal user input (e.g., no passwords), and we may add tokenized invite links in future.
+
+###  Layered Architecture (based on Figure 4.10 & Table 4.6)
+[1] Browser-Based UI
+    - HTML/CSS/JavaScript
+    - Input form & RSVP list rendering
+
+[2] UI Management Layer
+    - JavaScript DOM control
+    - Form validation & input formatting
+
+[3] Application Logic
+    - RSVP creation, guest list logic
+    - localStorage data handling
+
+[4] Shared Services (planned)
+    - Export to CSV
+    - Future: API call to backend
+
+[5] Database Layer (planned)
+    - Currently simulated via localStorage
+    - Future: Firebase / MongoDB or SQL backend
+
+### Architecture Diagram (based on Figure 4.11)
++------------------------+    <-- UI Layer
+|  RSVP Form (HTML)      |
+|  Guest List Display    |
++------------------------+
+            |
++------------------------+    <-- UI Mgmt Layer
+|  Form Validation       |
+|  JS Event Handling     |
++------------------------+
+            |
++------------------------+    <-- App Logic
+|  Create RSVP           |
+|  Save to localStorage  |
+|  Export to CSV         |
++------------------------+
+
+### Technologies Chosen (Table 4.8)
+| Component        | Choice                        | Rationale                      |
+| ---------------- | ----------------------------- | ------------------------------ |
+| **Platform**     | Web                           | Lightweight and easy to deploy |
+| **Storage**      | `localStorage` (simulated DB) | Easy to mock DB in browser     |
+| **Database**     | Planned: MongoDB / Firebase   | Flexible schema, cloud ready   |
+| **Server**       | GitHub Pages / Firebase       | Fast deployment, scales easily |
+| **Open Source**  | May reuse CSV export libs     | Saves dev time                 |
+| **Dev Tools**    | VS Code, Chrome DevTools      | Familiar, lightweight          |
+| **Future Stack** | React + Express.js backend    | Common full-stack web tools    |
+
